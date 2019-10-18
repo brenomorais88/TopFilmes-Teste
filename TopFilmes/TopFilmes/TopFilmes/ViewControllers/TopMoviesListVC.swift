@@ -21,7 +21,7 @@ class TopMoviesListVC: UIViewController {
         title = "Top Filmes"
         setupViewState(state: .loading)
         self.topMoviesListViewModel = TopMoviesListViewModel(delegate: self)
-        self.topMoviesListViewModel?.loadTopMovies()
+        self.topMoviesListViewModel?.loadTopMovies(page: page)
         setupCollectionView()
     }
     

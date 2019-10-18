@@ -21,4 +21,14 @@ class MoviesService {
             }
         }
     }
+    
+//    func getMoviesImage(page: Int, completionHandler: @escaping (DataResponse<UIImage>) -> Void) {
+//        DispatchQueue.main.async {
+//            let requestUrl: String = "\(APIManager.baseUrl)popular?api_key=\(APIManager.key)&language=pt-BR&page=\(page)"
+//            guard let url = URL(string: requestUrl) else { return }
+//            Alamofire.request(url).responseObject { (response: DataResponse<MovieResponse>) in
+//                completionHandler(response)
+//            }
+//        }
+//    }
 }

@@ -25,12 +25,17 @@ class MovieCell: UICollectionViewCell {
         self.loading.isHidden = true
         self.loading.stopAnimating()
         self.movieTitle.text = movie.title
+        self.loadMovieImage(imagePath: movie.backdrop_path)
     }
     
-    func setupLoadingCell() {
-        self.loading.isHidden = false
-        self.loading.startAnimating()
-        self.detailsView.isHidden = true
+    private func loadMovieImage(imagePath: String?) {
+        guard let endPoint = imagePath else {
+            return
+        }
+        let baseImageUrl = "https://image.tmdb.org/t/p/w185/\(endPoint)"
+        if let url = URL(string: baseImageUrl) {
+            movieImage.downloaded(url: url)
+        }
     }
 }
 
