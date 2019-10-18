@@ -46,4 +46,14 @@ class Movie: Mappable {
     required init?(map: Map){
         
     }
+    
+    func getAverage() -> String {
+        let average: String = "\(self.vote_average)"
+        return average
+    }
+    
+    func getPopularity() -> String {
+        let popularity: String = "\(self.popularity)"
+        return popularity
+    }
 }
