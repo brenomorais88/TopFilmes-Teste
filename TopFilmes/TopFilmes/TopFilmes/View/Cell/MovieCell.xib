@@ -18,6 +18,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="197" height="355"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LpD-yw-ek2">
+                        <rect key="frame" x="88" y="167" width="20" height="20"/>
+                    </activityIndicatorView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-mp-GSd">
                         <rect key="frame" x="4" y="4" width="189" height="347"/>
                         <subviews>
@@ -93,11 +96,15 @@
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="MMg-mp-GSd" secondAttribute="bottom" constant="4" id="Ie4-KB-4O0"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="MMg-mp-GSd" secondAttribute="trailing" constant="4" id="LTu-gA-6aF"/>
                 <constraint firstItem="MMg-mp-GSd" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="4" id="Np3-V2-M7I"/>
+                <constraint firstItem="LpD-yw-ek2" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="bns-YF-xr2"/>
+                <constraint firstItem="LpD-yw-ek2" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ivh-fG-IbN"/>
                 <constraint firstItem="MMg-mp-GSd" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="4" id="sEC-ko-DiD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="197" height="355"/>
             <connections>
+                <outlet property="detailsView" destination="MMg-mp-GSd" id="RZ9-Jc-18A"/>
+                <outlet property="loading" destination="LpD-yw-ek2" id="vhd-oD-bdc"/>
                 <outlet property="movieAverage" destination="yqR-m7-FLo" id="Q44-0g-oWB"/>
                 <outlet property="movieImage" destination="nN6-Mp-fZf" id="cA2-kW-p3Q"/>
                 <outlet property="moviePopularity" destination="FpA-JX-Rcm" id="fDF-Pt-SgP"/>

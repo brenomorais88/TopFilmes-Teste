@@ -13,6 +13,8 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieAverage: UILabel!
     @IBOutlet weak var moviePopularity: UILabel!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var detailsView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +22,15 @@ class MovieCell: UICollectionViewCell {
     }
     
     func setupCell(movie: Movie) {
+        self.loading.isHidden = true
+        self.loading.stopAnimating()
         self.movieTitle.text = movie.title
+    }
+    
+    func setupLoadingCell() {
+        self.loading.isHidden = false
+        self.loading.startAnimating()
+        self.detailsView.isHidden = true
     }
 }
 

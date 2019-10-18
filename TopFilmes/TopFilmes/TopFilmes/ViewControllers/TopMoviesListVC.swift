@@ -13,6 +13,7 @@ class TopMoviesListVC: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var emptyLabel: UILabel!
     var topMoviesListViewModel: TopMoviesListViewModel?
+    private var page: Int = 1
     
      var movies: [Movie] = []
     override func viewDidLoad() {
@@ -75,7 +76,7 @@ class TopMoviesListVC: UIViewController {
 extension TopMoviesListVC: TopMoviesListProtocol {
     func didLoadMovies(movies: [Movie]) {
         if movies.count > 0 {
-            self.movies = movies
+            self.movies.append(contentsOf: movies)
             self.collectionView.reloadData()
             setupViewState(state: .showing)
         } else {
@@ -98,5 +99,13 @@ extension TopMoviesListVC: UICollectionViewDataSource, UICollectionViewDelegate 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
         cell.setupCell(movie: movie)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.movies.count - 1 {
+            page += 1
+            print("carrega mais filmes")
+            self.topMoviesListViewModel?.loadTopMovies(page: page)
+        }
     }
 }

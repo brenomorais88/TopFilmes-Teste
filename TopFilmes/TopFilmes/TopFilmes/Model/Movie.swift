@@ -41,7 +41,6 @@ class Movie: Mappable {
         adult <- map["adult"]
         overview <- map["overview"]
         poster_path <- map["poster_path"]
-        
     }
     
     required init?(map: Map){

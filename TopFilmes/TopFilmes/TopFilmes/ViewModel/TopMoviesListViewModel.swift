@@ -21,8 +21,8 @@ class TopMoviesListViewModel {
         self.delegate = delegate
     }
     
-    public func loadTopMovies() {
-        service.getTopMovies(page: 1) { (response) in
+    public func loadTopMovies(page: Int) {
+        service.getTopMovies(page: page) { (response) in
             if response.error != nil {
                 self.delegate.didFailedLoadMovies()
             
