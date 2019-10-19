@@ -12,6 +12,7 @@ class TopMoviesListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var tryAgainBtn: UIButton!
     
     private var topMoviesListViewModel: TopMoviesListViewModel?
     private var page: Int = 1
@@ -33,6 +34,8 @@ class TopMoviesListVC: UIViewController {
         self.collectionView.isHidden = true
         self.loading.isHidden = true
         self.emptyLabel.isHidden = true
+        self.tryAgainBtn.isHidden = true
+        
         
         switch state {
         case .loading:
@@ -49,6 +52,7 @@ class TopMoviesListVC: UIViewController {
         case .error:
             self.emptyLabel.text = "Erro ao processar sua solicitação"
             self.emptyLabel.isHidden = false
+            self.tryAgainBtn.isHidden = false
             
         }
     }
@@ -101,6 +105,10 @@ class TopMoviesListVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func tryAgain(_ sender: Any) {
+        self.setupViewState(state: .loading)
+        self.topMoviesListViewModel?.loadTopMovies(page: page)
+    }
 }
 
 extension TopMoviesListVC: TopMoviesListProtocol {
