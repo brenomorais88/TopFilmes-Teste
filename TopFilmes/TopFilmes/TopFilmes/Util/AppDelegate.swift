@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 17/10/19.
+//  Created by Breno Carvalho de Morais on 17/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 

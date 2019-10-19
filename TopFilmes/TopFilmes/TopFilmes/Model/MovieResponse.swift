@@ -2,7 +2,7 @@
 //  MovieResponse.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 18/10/19.
+//  Created by Breno Carvalho de Morais on 18/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 
@@ -23,6 +23,5 @@ class MovieResponse: Mappable {
     }
     
     required init?(map: Map){
-        
     }
 }

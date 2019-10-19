@@ -2,7 +2,7 @@
 //  TopMoviesListVC.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 17/10/19.
+//  Created by Breno Carvalho de Morais on 17/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 
@@ -71,6 +71,13 @@ class TopMoviesListVC: UIViewController {
         collectionView.collectionViewLayout = layout
         collectionView.reloadData()
     }
+    
+    @IBAction func showFilterView(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MoviesFilterVC") as! MoviesFilterVC
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension TopMoviesListVC: TopMoviesListProtocol {
@@ -86,6 +93,14 @@ extension TopMoviesListVC: TopMoviesListProtocol {
     
     func didFailedLoadMovies() {
         setupViewState(state: .error)
+    }
+}
+
+extension TopMoviesListVC: MoviesFilterProtocol {
+    func filterMovies(filter: MoviesFilter) {
+        self.setupViewState(state: .loading)
+        self.movies = []
+        
     }
 }
 
@@ -107,5 +122,12 @@ extension TopMoviesListVC: UICollectionViewDataSource, UICollectionViewDelegate 
             print("carrega mais filmes")
             self.topMoviesListViewModel?.loadTopMovies(page: page)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = self.movies[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as! MovieDetailsVC
+        vc.movie = movie
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19398EC6235A90C9007D87EE /* MoviesFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19398EC5235A90C9007D87EE /* MoviesFilterVC.swift */; };
 		19957018235957D10034F79B /* TopFilmesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19957017235957D10034F79B /* TopFilmesTests.swift */; };
 		19957023235957D10034F79B /* TopFilmesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19957022235957D10034F79B /* TopFilmesUITests.swift */; };
 		1995706F235974650034F79B /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995705A235974650034F79B /* MovieDetailsViewModel.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		163549CD11F589426F0FBE3A /* Pods-TopFilmes-TopFilmesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopFilmes-TopFilmesUITests.release.xcconfig"; path = "Target Support Files/Pods-TopFilmes-TopFilmesUITests/Pods-TopFilmes-TopFilmesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		19398EC5235A90C9007D87EE /* MoviesFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFilterVC.swift; sourceTree = "<group>"; };
 		19956FFC235957CD0034F79B /* TopFilmes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopFilmes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19957013235957D10034F79B /* TopFilmesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopFilmesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19957017235957D10034F79B /* TopFilmesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFilmesTests.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				1995706D235974650034F79B /* MovieDetailsVC.swift */,
 				1995706E235974650034F79B /* TopMoviesListVC.swift */,
+				19398EC5235A90C9007D87EE /* MoviesFilterVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			files = (
 				568FBA78235A507B00267C09 /* UIImageView+Extensions.swift in Sources */,
 				1995707B235974650034F79B /* TopMoviesListVC.swift in Sources */,
+				19398EC6235A90C9007D87EE /* MoviesFilterVC.swift in Sources */,
 				1995708023597A6C0034F79B /* MovieResponse.swift in Sources */,
 				1995708223597C150034F79B /* MoviesService.swift in Sources */,
 				1995707E235979CC0034F79B /* APIManager.swift in Sources */,

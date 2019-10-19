@@ -2,7 +2,7 @@
 //  TopMoviesListViewModel.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 17/10/19.
+//  Created by Breno Carvalho de Morais on 17/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 
@@ -26,6 +26,18 @@ class TopMoviesListViewModel {
             if response.error != nil {
                 self.delegate.didFailedLoadMovies()
             
+            } else {
+                let movies = response.result.value?.results
+                self.delegate.didLoadMovies(movies: movies ?? [])
+            }
+        }
+    }
+    
+    public func loadMoviesFromFilter(filter: MoviesFilter) {
+        service.getMoviesFromFilter(filter: filter) { (response) in
+            if response.error != nil {
+                self.delegate.didFailedLoadMovies()
+                
             } else {
                 let movies = response.result.value?.results
                 self.delegate.didLoadMovies(movies: movies ?? [])

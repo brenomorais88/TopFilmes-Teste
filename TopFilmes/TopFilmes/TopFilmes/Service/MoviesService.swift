@@ -2,7 +2,7 @@
 //  MoviesService.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 18/10/19.
+//  Created by Breno Carvalho de Morais on 18/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class MoviesService {
     
     func getTopMovies(page: Int, completionHandler: @escaping (DataResponse<MovieResponse>) -> Void) {
         DispatchQueue.main.async {
-            let requestUrl: String = "\(APIManager.baseUrl)popular?api_key=\(APIManager.key)&language=pt-BR&page=\(page)"
+            let requestUrl: String = "\(APIManager.baseUrl)movie/popular?api_key=\(APIManager.key)&language=pt-BR&page=\(page)"
             guard let url = URL(string: requestUrl) else { return }
             Alamofire.request(url).responseObject { (response: DataResponse<MovieResponse>) in
                 completionHandler(response)
@@ -22,13 +22,29 @@ class MoviesService {
         }
     }
     
-//    func getMoviesImage(page: Int, completionHandler: @escaping (DataResponse<UIImage>) -> Void) {
-//        DispatchQueue.main.async {
-//            let requestUrl: String = "\(APIManager.baseUrl)popular?api_key=\(APIManager.key)&language=pt-BR&page=\(page)"
-//            guard let url = URL(string: requestUrl) else { return }
-//            Alamofire.request(url).responseObject { (response: DataResponse<MovieResponse>) in
-//                completionHandler(response)
-//            }
-//        }
-//    }
+    func getMoviesFromFilter(filter: MoviesFilter,completionHandler: @escaping (DataResponse<MovieResponse>) -> Void) {
+        DispatchQueue.main.async {
+            let text: String = filter.text
+            let adult: String = filter.isAdult ? "true" : "false"
+            let year: String = filter.year
+            
+            let requestUrl: String = "\(APIManager.baseUrl)/search/movie?api_key=\(APIManager.key)&language=pt-BR&query=\(text)&page=1&include_adult=\(adult)&year=\(year)"
+            print("========== \(requestUrl) ==========")
+            guard let url = URL(string: requestUrl) else { return }
+            Alamofire.request(url).responseObject { (response: DataResponse<MovieResponse>) in
+                completionHandler(response)
+            }
+        }
+    }
+    
+    func getMovieDetails(movieId: Int,completionHandler: @escaping (DataResponse<MovieDetails>) -> Void) {
+        DispatchQueue.main.async {
+            let requestUrl: String = "\(APIManager.baseUrl)movie/\(movieId)?api_key=\(APIManager.key)&language=pt-BR"
+            
+            guard let url = URL(string: requestUrl) else { return }
+            Alamofire.request(url).responseObject { (response: DataResponse<MovieDetails>) in
+                completionHandler(response)
+            }
+        }
+    }
 }

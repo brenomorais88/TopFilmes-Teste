@@ -2,7 +2,7 @@
 //  Movie.swift
 //  TopFilmes
 //
-//  Created by Kleyton Prestes Stringhetta on 18/10/19.
+//  Created by Breno Carvalho de Morais on 18/10/19.
 //  Copyright © 2019 Breno Carvalho de Morais. All rights reserved.
 //
 
@@ -19,7 +19,6 @@ class Movie: Mappable {
     var vote_count: NSNumber?
     var video: Bool?
     var vote_average: NSNumber?
-    
     var release_date: String?
     var genre_ids: [Int]?
     var adult: Bool?
