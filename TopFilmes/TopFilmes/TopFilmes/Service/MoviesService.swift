@@ -22,14 +22,15 @@ class MoviesService {
         }
     }
     
-    func getMoviesFromFilter(filter: MoviesFilter,completionHandler: @escaping (DataResponse<MovieResponse>) -> Void) {
+    func getMoviesFromFilter(filter: MoviesFilter, page: Int, completionHandler: @escaping (DataResponse<MovieResponse>) -> Void) {
         DispatchQueue.main.async {
             let text: String = filter.text
-            let adult: String = filter.isAdult ? "true" : "false"
             let year: String = filter.year
             
-            let requestUrl: String = "\(APIManager.baseUrl)/search/movie?api_key=\(APIManager.key)&language=pt-BR&query=\(text)&page=1&include_adult=\(adult)&year=\(year)"
-            print("========== \(requestUrl) ==========")
+            let requestUrl: String = "\(APIManager.baseUrl)search/movie?api_key=\(APIManager.key)&language=pt-BR&page=\(page)&query=\(text)&year=\(year)"
+            
+            print("======\(requestUrl)")
+            
             guard let url = URL(string: requestUrl) else { return }
             Alamofire.request(url).responseObject { (response: DataResponse<MovieResponse>) in
                 completionHandler(response)

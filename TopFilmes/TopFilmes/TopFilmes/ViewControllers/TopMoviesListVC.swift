@@ -12,17 +12,21 @@ class TopMoviesListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     @IBOutlet weak var emptyLabel: UILabel!
-    var topMoviesListViewModel: TopMoviesListViewModel?
-    private var page: Int = 1
     
-     var movies: [Movie] = []
+    private var topMoviesListViewModel: TopMoviesListViewModel?
+    private var page: Int = 1
+    private var filter: MoviesFilter?
+    private var refreshControl = UIRefreshControl()
+    private var movies: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Top Filmes"
-        setupViewState(state: .loading)
+        self.setupViewState(state: .loading)
         self.topMoviesListViewModel = TopMoviesListViewModel(delegate: self)
         self.topMoviesListViewModel?.loadTopMovies(page: page)
-        setupCollectionView()
+        self.setupCollectionView()
+        self.loadRefresh()
     }
     
     private func setupViewState(state: ViewState) {
@@ -49,6 +53,25 @@ class TopMoviesListVC: UIViewController {
         }
     }
     
+    private func loadRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self,
+                                      action: #selector(refresh),
+                                      for: UIControl.Event.valueChanged)
+        self.collectionView.addSubview(refreshControl)
+    }
+    
+    @objc
+    func refresh(sender: AnyObject) {
+        self.setupViewState(state: .loading)
+        self.movies = []
+        self.page = 1
+        self.filter = nil
+        self.topMoviesListViewModel?.loadTopMovies(page: page)
+        refreshControl.endRefreshing()
+    }
+    
+    
     private func setupCollectionView() {
         collectionView.register(UINib(nibName: "MovieCell", bundle: nil),
                                 forCellWithReuseIdentifier: "MovieCell")
@@ -64,7 +87,7 @@ class TopMoviesListVC: UIViewController {
         layout.minimumLineSpacing = 0.0
         
         let width: CGFloat = (UIScreen.main.bounds.width - 16) / 3
-        let height: CGFloat = 290
+        let height: CGFloat = 250
         
         layout.itemSize = CGSize(width: width,
                                  height: height)
@@ -82,8 +105,8 @@ class TopMoviesListVC: UIViewController {
 
 extension TopMoviesListVC: TopMoviesListProtocol {
     func didLoadMovies(movies: [Movie]) {
+        self.movies.append(contentsOf: movies)
         if movies.count > 0 {
-            self.movies.append(contentsOf: movies)
             self.collectionView.reloadData()
             setupViewState(state: .showing)
         } else {
@@ -100,6 +123,10 @@ extension TopMoviesListVC: MoviesFilterProtocol {
     func filterMovies(filter: MoviesFilter) {
         self.setupViewState(state: .loading)
         self.movies = []
+        self.page = 1
+        self.filter = filter
+        self.topMoviesListViewModel?.loadMoviesFromFilter(filter: filter,
+                                                          page: self.page)
         
     }
 }
@@ -119,8 +146,10 @@ extension TopMoviesListVC: UICollectionViewDataSource, UICollectionViewDelegate 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == self.movies.count - 1 {
             page += 1
-            print("carrega mais filmes")
-            self.topMoviesListViewModel?.loadTopMovies(page: page)
+            
+            if self.filter == nil {
+                self.topMoviesListViewModel?.loadTopMovies(page: page)
+            }
         }
     }
     

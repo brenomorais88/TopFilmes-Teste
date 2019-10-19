@@ -11,8 +11,7 @@ import UIKit
 class MovieCell: UICollectionViewCell {
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieAverage: UILabel!
-    @IBOutlet weak var moviePopularity: UILabel!
+    @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var detailsView: UIView!
     
     override func awakeFromNib() {
@@ -20,10 +19,16 @@ class MovieCell: UICollectionViewCell {
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        self.movieImage.image = UIImage(named: "placeholder")
+        self.movieTitle.text = ""
+        self.movieYear.text = ""
+        super.prepareForReuse()
+    }
+    
     func setupCell(movie: Movie) {
         self.movieTitle.text = movie.title
-        self.movieAverage.text = movie.getAverage()
-        self.moviePopularity.text = movie.getPopularity()
+        self.movieYear.text = movie.release_date
         self.loadMovieImage(imagePath: movie.backdrop_path)
     }
     

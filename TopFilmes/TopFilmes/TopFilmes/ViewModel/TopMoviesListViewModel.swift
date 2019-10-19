@@ -33,8 +33,8 @@ class TopMoviesListViewModel {
         }
     }
     
-    public func loadMoviesFromFilter(filter: MoviesFilter) {
-        service.getMoviesFromFilter(filter: filter) { (response) in
+    public func loadMoviesFromFilter(filter: MoviesFilter, page: Int) {
+        service.getMoviesFromFilter(filter: filter, page: page) { (response) in
             if response.error != nil {
                 self.delegate.didFailedLoadMovies()
                 
