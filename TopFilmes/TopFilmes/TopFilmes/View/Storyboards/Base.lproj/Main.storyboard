@@ -9,16 +9,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--FavoritesVC-->
         <scene sceneID="bP0-j4-Rmt">
             <objects>
-                <viewController id="KP4-VB-54K" sceneMemberID="viewController">
+                <viewController id="KP4-VB-54K" customClass="FavoritesVC" customModule="TopFilmes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kyj-au-RDa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhum resultado encontrado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWd-bm-bgi">
+                                <rect key="frame" x="71" y="355" width="233" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HgW-U6-MuW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="py1-fc-dw0">
+                                    <size key="itemSize" width="50" height="355"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0bA-bu-pWf">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="355"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="355"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HgW-U6-MuW" firstAttribute="leading" secondItem="jfU-fO-a74" secondAttribute="leading" id="9dX-eP-xbh"/>
+                            <constraint firstItem="jfU-fO-a74" firstAttribute="bottom" secondItem="HgW-U6-MuW" secondAttribute="bottom" id="PsM-Bz-7em"/>
+                            <constraint firstItem="HgW-U6-MuW" firstAttribute="top" secondItem="jfU-fO-a74" secondAttribute="top" id="Wni-sn-oQL"/>
+                            <constraint firstItem="SWd-bm-bgi" firstAttribute="centerX" secondItem="jfU-fO-a74" secondAttribute="centerX" id="mw7-oD-JMh"/>
+                            <constraint firstItem="SWd-bm-bgi" firstAttribute="centerY" secondItem="jfU-fO-a74" secondAttribute="centerY" id="uGi-Bq-0P8"/>
+                            <constraint firstItem="jfU-fO-a74" firstAttribute="trailing" secondItem="HgW-U6-MuW" secondAttribute="trailing" id="uT3-SC-f1y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jfU-fO-a74"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="HgW-U6-MuW" id="LOH-Fn-HR1"/>
+                        <outlet property="emptyLabel" destination="SWd-bm-bgi" id="Y70-JP-Tbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byp-Ze-EHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bam-d6-CSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904.8" y="792.95352323838085"/>
+            <point key="canvasLocation" x="1905" y="793"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vvN-DB-Y92">

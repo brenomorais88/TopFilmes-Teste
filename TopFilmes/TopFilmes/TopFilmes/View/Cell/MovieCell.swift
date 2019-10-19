@@ -32,6 +32,16 @@ class MovieCell: UICollectionViewCell {
         self.loadMovieImage(imagePath: movie.backdrop_path)
     }
     
+    func setupCell(favoriteMovie: FavoriteMovie) {
+        self.movieTitle.text = favoriteMovie.title
+        self.movieYear.text = favoriteMovie.date
+        
+        if let imgData = favoriteMovie.image {
+            let image = UIImage(data: imgData)
+            self.movieImage.image = image
+        }
+    }
+    
     private func loadMovieImage(imagePath: String?) {
         guard let endPoint = imagePath else {
             return

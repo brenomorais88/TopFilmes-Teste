@@ -45,4 +45,6 @@ class Movie: Mappable {
     required init?(map: Map){
         
     }
+    
+    init() {}
 }
