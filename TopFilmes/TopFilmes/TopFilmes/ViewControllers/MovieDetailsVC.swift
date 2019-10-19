@@ -18,7 +18,8 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var movieView: UIView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    var movieDetailsViewModel: MovieDetailsViewModel?
+    private var movieDetailsViewModel: MovieDetailsViewModel?
+    private var isFavorite: Bool = false
     var movie: Movie?
     
     override func viewDidLoad() {
@@ -28,7 +29,14 @@ class MovieDetailsVC: UIViewController {
         movieDetailsViewModel = MovieDetailsViewModel(delegate: self)
         if let id = self.movie?.id {
             self.movieDetailsViewModel?.loadMovieDetails(movieId: id)
+            isFavorite = self.movieDetailsViewModel?.movieIsFavorite(movieId: id) ?? false
+            setupFavButton()
         }
+    }
+    
+    func setupFavButton() {
+        let btnText = isFavorite ? "Remover dos Favoritos" : "Adicionar aos Favoritos"
+        self.favoriteBtn.setTitle(btnText, for: .normal)
     }
     
     private func setupViewState(state: ViewState) {
@@ -49,11 +57,27 @@ class MovieDetailsVC: UIViewController {
     }
     
     @IBAction func favoriteMovie(_ sender: Any) {
+        if !isFavorite {
+            guard let img = self.movieImage.image else { return }
+            movieDetailsViewModel?.saveToFavorites(movieImage: img)
+        
+        } else {
+            self.movieDetailsViewModel?.removeToFavorites()
+        }
     }
-    
 }
 
 extension MovieDetailsVC: MovieDetailsProtocol {
+    func movieFavorited() {
+        isFavorite = true
+        setupFavButton()
+    }
+    
+    func movieUnfavorited() {
+        isFavorite = false
+        setupFavButton()
+    }
+    
     func didLoadMovieDetails(details: MovieDetails) {
         
         if let endpoint = details.backdrop_path {
@@ -71,6 +95,13 @@ extension MovieDetailsVC: MovieDetailsProtocol {
     }
     
     func didFailedLoadMovieDetails() {
-        
+        let alert = UIAlertController(title: "Atenção", message: "Erro ao carregar as informações do filme", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Tentar Novamente", style: .default, handler: { (action) in
+            if let id = self.movie?.id {
+                self.movieDetailsViewModel?.loadMovieDetails(movieId: id)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
