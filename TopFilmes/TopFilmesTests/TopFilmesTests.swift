@@ -104,6 +104,7 @@ class TopFilmesTests: XCTestCase {
         XCTAssert(vc.searchIsValid() == false, "search should be invalid")
         
         vc.titleTextField.text = "teste"
+        vc.filter(self)
         XCTAssert(vc.searchIsValid() == true, "search should be valid")
     }
     

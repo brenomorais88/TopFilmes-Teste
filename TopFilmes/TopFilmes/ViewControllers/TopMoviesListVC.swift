@@ -135,7 +135,6 @@ extension TopMoviesListVC: MoviesFilterProtocol {
         self.filter = filter
         self.topMoviesListViewModel?.loadMoviesFromFilter(filter: filter,
                                                           page: self.page)
-        
     }
 }
 

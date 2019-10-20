@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19092B73235CA9A300176218 /* TopFilmesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19092B72235CA9A300176218 /* TopFilmesUITests.swift */; };
 		19398EC6235A90C9007D87EE /* MoviesFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19398EC5235A90C9007D87EE /* MoviesFilterVC.swift */; };
 		19957018235957D10034F79B /* TopFilmesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19957017235957D10034F79B /* TopFilmesTests.swift */; };
 		1995706F235974650034F79B /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1995705A235974650034F79B /* MovieDetailsViewModel.swift */; };
@@ -34,6 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		19092B75235CA9A300176218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19956FF4235957CD0034F79B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19956FFB235957CD0034F79B;
+			remoteInfo = TopFilmes;
+		};
 		19957014235957D10034F79B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19956FF4235957CD0034F79B /* Project object */;
@@ -45,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		163549CD11F589426F0FBE3A /* Pods-TopFilmes-TopFilmesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopFilmes-TopFilmesUITests.release.xcconfig"; path = "Target Support Files/Pods-TopFilmes-TopFilmesUITests/Pods-TopFilmes-TopFilmesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		19092B70235CA9A300176218 /* TopFilmesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopFilmesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19092B72235CA9A300176218 /* TopFilmesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFilmesUITests.swift; sourceTree = "<group>"; };
+		19092B74235CA9A300176218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19398EC5235A90C9007D87EE /* MoviesFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesFilterVC.swift; sourceTree = "<group>"; };
 		19956FFC235957CD0034F79B /* TopFilmes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopFilmes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19957013235957D10034F79B /* TopFilmesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopFilmesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +95,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		19092B6D235CA9A300176218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19956FF9235957CD0034F79B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,12 +121,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19092B71235CA9A300176218 /* TopFilmesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				19092B72235CA9A300176218 /* TopFilmesUITests.swift */,
+				19092B74235CA9A300176218 /* Info.plist */,
+			);
+			path = TopFilmesUITests;
+			sourceTree = "<group>";
+		};
 		19956FF3235957CD0034F79B = {
 			isa = PBXGroup;
 			children = (
 				19AB406B235B8DFB00FE550E /* TopFilmes.xcdatamodeld */,
 				1995704C235973BB0034F79B /* TopFilmes */,
 				19957016235957D10034F79B /* TopFilmesTests */,
+				19092B71235CA9A300176218 /* TopFilmesUITests */,
 				19956FFD235957CD0034F79B /* Products */,
 				25001E6E148C8989B6F96D4A /* Pods */,
 				40DEB7CFBE5972836B9EA49F /* Frameworks */,
@@ -120,6 +148,7 @@
 			children = (
 				19956FFC235957CD0034F79B /* TopFilmes.app */,
 				19957013235957D10034F79B /* TopFilmesTests.xctest */,
+				19092B70235CA9A300176218 /* TopFilmesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +282,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		19092B6F235CA9A300176218 /* TopFilmesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19092B79235CA9A300176218 /* Build configuration list for PBXNativeTarget "TopFilmesUITests" */;
+			buildPhases = (
+				19092B6C235CA9A300176218 /* Sources */,
+				19092B6D235CA9A300176218 /* Frameworks */,
+				19092B6E235CA9A300176218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				19092B76235CA9A300176218 /* PBXTargetDependency */,
+			);
+			name = TopFilmesUITests;
+			productName = TopFilmesUITests;
+			productReference = 19092B70235CA9A300176218 /* TopFilmesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		19956FFB235957CD0034F79B /* TopFilmes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19957027235957D10034F79B /* Build configuration list for PBXNativeTarget "TopFilmes" */;
@@ -301,6 +348,10 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Breno Carvalho de Morais";
 				TargetAttributes = {
+					19092B6F235CA9A300176218 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 19956FFB235957CD0034F79B;
+					};
 					19956FFB235957CD0034F79B = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -325,11 +376,19 @@
 			targets = (
 				19956FFB235957CD0034F79B /* TopFilmes */,
 				19957012235957D10034F79B /* TopFilmesTests */,
+				19092B6F235CA9A300176218 /* TopFilmesUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		19092B6E235CA9A300176218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19956FFA235957CD0034F79B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +474,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		19092B6C235CA9A300176218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19092B73235CA9A300176218 /* TopFilmesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19956FF8235957CD0034F79B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -450,6 +517,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		19092B76235CA9A300176218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19956FFB235957CD0034F79B /* TopFilmes */;
+			targetProxy = 19092B75235CA9A300176218 /* PBXContainerItemProxy */;
+		};
 		19957015235957D10034F79B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 19956FFB235957CD0034F79B /* TopFilmes */;
@@ -477,6 +549,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		19092B77235CA9A300176218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TopFilmesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.brenoMorais.TopFilmesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TopFilmes;
+			};
+			name = Debug;
+		};
+		19092B78235CA9A300176218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TopFilmesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.brenoMorais.TopFilmesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TopFilmes;
+			};
+			name = Release;
+		};
 		19957025235957D10034F79B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -676,6 +784,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		19092B79235CA9A300176218 /* Build configuration list for PBXNativeTarget "TopFilmesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19092B77235CA9A300176218 /* Debug */,
+				19092B78235CA9A300176218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		19956FF7235957CD0034F79B /* Build configuration list for PBXProject "TopFilmes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
