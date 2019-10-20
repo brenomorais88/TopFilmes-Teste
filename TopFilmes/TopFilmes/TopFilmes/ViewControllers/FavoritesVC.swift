@@ -60,7 +60,7 @@ class FavoritesVC: UIViewController {
         layout.minimumLineSpacing = 0.0
         
         let width: CGFloat = (UIScreen.main.bounds.width - 16) / 3
-        let height: CGFloat = 250
+        let height: CGFloat = (UIScreen.main.bounds.height - 16) / 2.5
         
         layout.itemSize = CGSize(width: width,
                                  height: height)
