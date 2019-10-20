@@ -44,7 +44,7 @@ class MoviesFilterVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    private func searchIsValid() -> Bool {
+    func searchIsValid() -> Bool {
         if self.titleTextField.text != "" {
             return true
         } else {

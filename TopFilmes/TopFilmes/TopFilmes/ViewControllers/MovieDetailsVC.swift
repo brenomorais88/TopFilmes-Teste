@@ -88,9 +88,13 @@ extension MovieDetailsVC: MovieDetailsProtocol {
         }
         
         self.movieTitle.text = details.title
-        self.movieRate.text = details.title
-        self.movieDate.text = details.title
         self.movieDescription.text = details.overview
+        self.movieRate.text = details.tagline
+        
+        if let date = details.release_date {
+            self.movieDate.text = "Estreia: \(date)"
+        }
+        
         setupViewState(state: .showing)
     }
     

@@ -30,7 +30,7 @@ class TopMoviesListVC: UIViewController {
         self.loadRefresh()
     }
     
-    private func setupViewState(state: ViewState) {
+    func setupViewState(state: ViewState) {
         self.collectionView.isHidden = true
         self.loading.isHidden = true
         self.emptyLabel.isHidden = true

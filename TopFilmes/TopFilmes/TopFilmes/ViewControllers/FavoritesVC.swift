@@ -27,7 +27,7 @@ class FavoritesVC: UIViewController {
         self.favoritesViewModel?.loadFavoriteMovies()
     }
     
-    private func setupViewState(state: ViewState) {
+     func setupViewState(state: ViewState) {
         self.collectionView.isHidden = true
         self.emptyLabel.isHidden = true
         
@@ -37,7 +37,7 @@ class FavoritesVC: UIViewController {
             
         case .empty:
             self.emptyLabel.isHidden = false
-            self.emptyLabel.text = "Voce não tem favoritos"
+            self.emptyLabel.text = "Você não tem favoritos"
             
         default:
             break

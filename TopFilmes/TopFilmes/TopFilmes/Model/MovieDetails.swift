@@ -21,6 +21,7 @@ class MovieDetails: Mappable {
     var vote_average: NSNumber?
     var overview: String?
     var release_date: String?
+    var tagline: String?
     
     func mapping(map: Map) {
         id <- map["id"]
@@ -34,11 +35,14 @@ class MovieDetails: Mappable {
         vote_average <- map["vote_count"]
         overview <- map["overview"]
         release_date <- map["release_date"]
+        tagline <- map["tagline"]
     }
     
     required init?(map: Map){
         
     }
+    
+    init(){}
 }
 
 
