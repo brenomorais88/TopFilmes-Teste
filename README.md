@@ -22,7 +22,8 @@ MVVM (Movel-View-ViewModel)
 1. Instale o CocoaPods: https://cocoapods.org/
 2. No terminal, entre na pasta onde se encontra o arquivo 'Podfile' e digite: `pod install`
 3. Abrir o projeto pelo arquivo **`TopFilmes.xcworkspace`**
-4. Command+R paraexecutar o aplicativo e Command+U para executar os testes.
+4. Atualizar a SwiftVersion das dependencias externas(Alamofire, AlamofireObjectMapper, ObjectMapper) para 4.2
+5. Command+R paraexecutar o aplicativo e Command+U para executar os testes.
 
 ## Features Desenvolvidas
 
