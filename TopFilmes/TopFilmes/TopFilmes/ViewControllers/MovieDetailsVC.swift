@@ -17,10 +17,14 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var favoriteBtn: UIButton!
     @IBOutlet weak var movieView: UIView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
+    @IBOutlet weak var detailViewHeight: NSLayoutConstraint!
     
     private var movieDetailsViewModel: MovieDetailsViewModel?
     private var isFavorite: Bool = false
     var movie: Movie?
+    var showingDetails: Bool = true
+    
+    @IBOutlet weak var hiddenDetailsBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,19 @@ class MovieDetailsVC: UIViewController {
             self.movieDetailsViewModel?.removeToFavorites()
         }
     }
+    
+    @IBAction func hiddenDetails(_ sender: Any) {
+        let newHeight: CGFloat = showingDetails ? 175 : 400
+        let imageName: String = showingDetails ? "arrowTop" : "arrowDown"
+        UIView.animate(withDuration: 0.5) {
+            self.detailViewHeight.constant = newHeight
+            self.view.layoutIfNeeded()
+        }
+        
+        self.hiddenDetailsBtn.setImage(UIImage(named: imageName), for: .normal)
+        showingDetails = !showingDetails
+        
+    }
 }
 
 extension MovieDetailsVC: MovieDetailsProtocol {
@@ -81,7 +98,7 @@ extension MovieDetailsVC: MovieDetailsProtocol {
     func didLoadMovieDetails(details: MovieDetails) {
         
         if let endpoint = details.backdrop_path {
-            let baseImageUrl = "https://image.tmdb.org/t/p/w185/\(endpoint)"
+            let baseImageUrl = "https://image.tmdb.org/t/p/w300/\(endpoint)"
             if let url = URL(string: baseImageUrl) {
                 self.movieImage.downloaded(url: url)
             }
