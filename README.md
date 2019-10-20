@@ -5,13 +5,11 @@ Aplicativo para teste de desenvolvimento
 
 ## Desafio
 
-O objetivo do teste é fazer uma lista em grid com a imagem e o nome do jogo e uma tela de detalhes com a imagem, nome do jogo, contador de canais e quantidade de visualizações.
-
-Utilizar a API do Twitch: https://dev.twitch.tv/docs/v5/reference/games/.
+O objetivo do teste é fazer uma lista em grid com a imagem e nome dos filmes utilizando a api: https://www.themoviedb.org/documentation/api
 
 ## Arquitetura utilizada
 
-Neste projeto estou utilizando MVVM (Movel-View-ViewModel) 
+MVVM (Movel-View-ViewModel) 
 
 
 ## Dependências externas
