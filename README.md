@@ -38,6 +38,9 @@ Busca personalizada pelo titulo desejado e opcionalmente pelo ano do filme.
 #### Listagem de Favoritos:
 Consulta no CoreData e lista os filmes salvos.
 
+## Desenvolvimento
 
+### Breno Carvalho Alves de Morais
+#### brenomorais88@gmail.com
 
 
