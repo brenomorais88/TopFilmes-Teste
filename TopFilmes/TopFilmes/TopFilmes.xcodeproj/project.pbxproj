@@ -50,8 +50,6 @@
 		19957013235957D10034F79B /* TopFilmesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopFilmesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19957017235957D10034F79B /* TopFilmesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFilmesTests.swift; sourceTree = "<group>"; };
 		19957019235957D10034F79B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19957022235957D10034F79B /* TopFilmesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFilmesUITests.swift; sourceTree = "<group>"; };
-		19957024235957D10034F79B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19957051235974430034F79B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1995705A235974650034F79B /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		1995705B235974650034F79B /* TopMoviesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMoviesListViewModel.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				19AB406B235B8DFB00FE550E /* TopFilmes.xcdatamodeld */,
 				1995704C235973BB0034F79B /* TopFilmes */,
 				19957016235957D10034F79B /* TopFilmesTests */,
-				19957021235957D10034F79B /* TopFilmesUITests */,
 				19956FFD235957CD0034F79B /* Products */,
 				25001E6E148C8989B6F96D4A /* Pods */,
 				40DEB7CFBE5972836B9EA49F /* Frameworks */,
@@ -134,15 +131,6 @@
 				19957019235957D10034F79B /* Info.plist */,
 			);
 			path = TopFilmesTests;
-			sourceTree = "<group>";
-		};
-		19957021235957D10034F79B /* TopFilmesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				19957022235957D10034F79B /* TopFilmesUITests.swift */,
-				19957024235957D10034F79B /* Info.plist */,
-			);
-			path = TopFilmesUITests;
 			sourceTree = "<group>";
 		};
 		1995704C235973BB0034F79B /* TopFilmes */ = {
