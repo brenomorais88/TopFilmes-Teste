@@ -55,6 +55,7 @@ class TopMoviesListVC: UIViewController {
             self.tryAgainBtn.isHidden = false
             
         }
+        self.view.layoutIfNeeded()
     }
     
     private func loadRefresh() {
